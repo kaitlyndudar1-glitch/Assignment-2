@@ -12,3 +12,11 @@ def readWords(userWords):
     wordCount= fileWords.read().split()
     fileWords.close()
     return wordCount
+
+def readStory(userStory):
+    fileStory= open(userStory)
+    story=fileStory.read().split()
+    fileStory.close()
+    return story
+
+def countWords(userWords, userStory):
