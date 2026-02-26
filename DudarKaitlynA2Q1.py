@@ -19,4 +19,13 @@ def readStory(userStory):
     fileStory.close()
     return story
 
-def countWords(userWords, userStory):
+def countWords(wordCount, Story):
+    for word in wordCount
+    count= 0
+    for item in Story:
+        if item == word:
+            count+= 1
+    return count
+
+def uniqueWords()
+
