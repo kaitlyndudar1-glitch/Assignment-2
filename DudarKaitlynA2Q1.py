@@ -28,4 +28,5 @@ def countWords(wordCount, Story):
     return count
 
 def uniqueWords()
-
+    wordDict= {}
+    for
