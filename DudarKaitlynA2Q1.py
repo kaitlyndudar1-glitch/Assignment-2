@@ -6,8 +6,6 @@ AUTHOR Kaitlyn Dudar
 VERSION [Date of last change; e.g., 2026-Feb-26]
 PURPOSE: use of dictionaries to store and analyze word frequencies of two files
 """
-from distributed.diagnostics.progress_stream import counts
-
 
 def readWords(userWords):
     fileWords= open(userWords)
