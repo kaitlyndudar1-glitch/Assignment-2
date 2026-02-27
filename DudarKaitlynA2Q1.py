@@ -6,25 +6,24 @@ AUTHOR Kaitlyn Dudar
 VERSION [Date of last change; e.g., 2026-Feb-26]
 PURPOSE: use of dictionaries to store and analyze word frequencies of two files
 """
-
 def readWords(userWords):
-    fileWords= open(userWords)
+    fileWords= open(userWords, 'r', encoding= 'utf-8')
     wordCount= fileWords.read().split()
     fileWords.close()
     return wordCount
 
 def readStory(userStory):
-    fileStory= open(userStory)
+    fileStory= open(userStory, 'r', encoding= 'utf-8')
     story=fileStory.read().split()
     fileStory.close()
     return story
 
-def countWords(wordlist, StoryList):
+def countWords(wordCount, Story):
     counts= {}
-    for word in wordlist:
+    for word in wordCount:
         counts[word]= 0
-    for item in StoryList:
-        if item == counts:
+    for item in Story:
+        if item in counts:
             counts[item]+= 1
     return counts
 
@@ -70,11 +69,13 @@ leastCommon = leastWords(countedWords)
 alphaList = alphabeticOrder(countedWords)
 
 print("Words Counts: ")
-print("The Word {} occurs {} times".format())
-print("Most common word: '{}' with {} occurrences".format())
+for word in alphaList:
+    print("The Word {} occurs {} times".format(word, countedWords[word]))
 print("Summary:")
-print("Total unique words searched: {}".format(len(wordCount)))
-print("Most common word: '{}' with {} occurrences".format())
-print("Least common word: '{}' with {} occurrences".format())
+print("Total unique words searched: {}".format(numUnique))
+print("Most common word: '{}' with {} occurrences".format(mostCommon, countedWords[mostCommon]))
+print("Least common word: '{}' with {} occurrences".format(leastCommon, countedWords[leastCommon]))
+
 print("All words sorted alphabetically:")
-print("'{}' occurs {} times.".format())
+for word in alphaList:
+    print("'{}' occurs {} times.".format(word, countedWords[word]))
