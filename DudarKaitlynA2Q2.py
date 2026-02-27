@@ -37,3 +37,17 @@ for line in file:
     floorData.append(data)
 
 file.close()
+
+space= 0
+totVehicles= 0
+
+for item in floorData:
+    space= space + item['Spaces']
+    totVehicles= totVehicles + item['Vehicles']
+
+openSpace= space - totVehicles
+occupancy= int((openSpace / space) * 100)
+
+if openSpace == 0:
+    print("PARKADE FULL\n----------\nTotal spaces in parkade: {}\nTotal available spaces: 0\nTotal parkade occupancy: 100%".format(space))
+
