@@ -51,7 +51,7 @@ occupancy= int((openSpace / space) * 100) #The occupancy
 
 if openSpace == 0: #Runs if the parkade it completely full
     print("PARKADE FULL\n----------\nTotal spaces in parkade: {}\nTotal available spaces: 0\nTotal parkade occupancy: 100%".format(space))
-else
+else:
     for item in floorData:
         floor= item['Floor']
         spaces= item['Spaces']
