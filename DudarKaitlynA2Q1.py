@@ -23,21 +23,26 @@ def readStory(userStory):
 
 def countWords(wordCount, Story):
     counts= {}
-    for word in wordCount
-    counts[word]= 0
+    for word in wordCount:
+        counts[word]= 0
     for item in Story:
         if item == word:
             counts[word]+= 1
     return counts
 
-def uniqueWords(wordCount)
+def uniqueWords(wordCount):
     numUniqueWords= len(wordCount)
     return numUniqueWords
 
-def commonWords():
+def commonWords(counts):
     mostCommon= max(counts)
 
-def leastWords()
+def leastWords(counts):
     leastWords= min(counts)
 
-def
+def alphabeticOrder(counts):
+    alphabeticOrder= sorted(counts)
+    return alphabeticOrder
+
+userWords= input("Enter the name of the file containing the words to count: ")
+userStory= input("Enter the name of the file containing the story: ")
