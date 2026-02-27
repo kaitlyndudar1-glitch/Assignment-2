@@ -6,7 +6,11 @@ AUTHOR Kaitlyn Dudar
 VERSION [Date of last change; e.g., 2026-Feb-26]
 PURPOSE: calculates floor occupancy for flexible parking pricing
 """
-
+'''
+I choose to use a list with dictionaries this keeps the three values together and
+is a lot easier then using a lot of index positions. By using it in a dictionary
+I can just call the key.
+'''
 def rate(occupancy):
     if occupancy >= 75:
         RATE= 3
