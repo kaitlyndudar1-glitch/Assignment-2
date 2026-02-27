@@ -22,7 +22,7 @@ def readStory(userStory):
 def countWords(wordCount, Story):
     counts= {}
     for word in wordCount
-    count= 0
+    counts[word]= 0
     for item in Story:
         if item == word:
             count+= 1
