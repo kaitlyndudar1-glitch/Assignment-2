@@ -20,6 +20,7 @@ def readStory(userStory):
     return story
 
 def countWords(wordCount, Story):
+    counts= {}
     for word in wordCount
     count= 0
     for item in Story:
