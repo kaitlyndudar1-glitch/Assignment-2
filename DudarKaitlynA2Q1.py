@@ -37,8 +37,15 @@ def commonWords(counts):
     return mostCommon
 
 def leastWords(counts):
-    leastWords= min(counts)
-    return leastWords
+    words= list(counts.keys())
+    leastword= words[0]
+    leastCount= counts[leastword]
+
+    for word in words:
+        if counts[word] < leastCount:
+            leastword= word
+            leastCount= counts[word]
+    return leastword
 
 def alphabeticOrder(counts):
     alphabeticOrder= sorted(counts)
