@@ -14,10 +14,13 @@ I can just call the key.
 def rate(occupancy):
     if occupancy >= 75:
         RATE= 3
+        return RATE
     elif occupancy >= 60 and occupancy < 75:
         RATE= 2
+        return RATE
     elif occupancy >= 50 and occupancy < 60:
         RATE= 1.50
+        return RATE
     else:
         RATE= 1
         return RATE
@@ -63,7 +66,9 @@ else:
         if vehicles == spaces:
             print("Floor {}: FLOOR FULL".format(floor))
         else:
-            parkingRate= rate(occupancy)
-            print("Floor {}: {} spaces open, {}% occupancy, parking rate is ${:.2f}".format(floor, floorSpace, floorOccup, parkingRate))
+            parkingRate= rate(floorOccupancy)
+            print("Floor {}: {} spaces open, {}% occupancy, parking rate is ${:.2f}".format(floor, floorSpace, floorOccupancy, parkingRate))
 
-print("----------\nTotal spaces in parkade: {}\nTotal available spaces: {}\nTotal parkade occupancy: {}%".format(space, floorSpace, occupancy))
+print("----------\nTotal spaces in parkade: {}\nTotal available spaces: {}\nTotal parkade occupancy: {}%".format(space, openSpace, occupancy))
+
+print("\nProgram terminated normally.")
