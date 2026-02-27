@@ -12,12 +12,13 @@ def readFile(userInput):
     file= open(userInput)
     data= []
     firstLine= "Date,Price"
+
     for line in file:
         line= line.split()
 
         if line != firstLine:
             date, price= line.split(",")
-            data.append(date, float(price))
+            data.append((date, float(price)))
 
     file.close()
     return data
@@ -32,13 +33,18 @@ def averagePrice(data):
     return average, count
 
 def minPrice(data):
-    for item in data:
-    minprice= min(data[item][1])
-    return mindate, minprice
+    minDate, minPrice= data[0]
+    for date, price in data:
+        if price < minPrice:
+            minDate, minPrice= date, price
+    return minDate, minPrice
 
 def maxPrice(data):
-    maxdate, maxprice= max(data)
-    return maxdate, maxprice
+    maxDate, maxPrice= data[0]
+    for date, price in data:
+        if price > maxPrice:
+            maxDate, maxPrice= date, price
+    return maxDate, maxPrice
 
 def deviation(data):
     average, count = averagePrice(data)
@@ -52,6 +58,24 @@ def deviation(data):
 def priceIncrease(data):
     countInc= 0
 
+    for item in data:
+        date, price= data[item-1]
+        currentDate, currentPrice= data[item]
+        difference= currentPrice - price
+        if difference > 0:
+            countInc+= 1
+    return countInc
+
+def priceDecrease(data):
+    countDec= 0
+
+    for item in data:
+        date, price= data[item-1]
+        currentDate, currentPrice= data[item]
+        difference= currentPrice - price
+        if difference < 0:
+            countDec+= 1
+    return countDec
 
 
 
