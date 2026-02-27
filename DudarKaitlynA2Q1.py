@@ -36,9 +36,11 @@ def uniqueWords(wordCount):
 
 def commonWords(counts):
     mostCommon= max(counts)
+    return mostCommon
 
 def leastWords(counts):
     leastWords= min(counts)
+    return leastWords
 
 def alphabeticOrder(counts):
     alphabeticOrder= sorted(counts)
@@ -46,3 +48,13 @@ def alphabeticOrder(counts):
 
 userWords= input("Enter the name of the file containing the words to count: ")
 userStory= input("Enter the name of the file containing the story: ")
+
+words= readWords(userWords)
+story= readStory(userStory)
+countedWords= countWords(words, story)
+uniqueWords= uniqueWords(countedWords)
+commonWords= commonWords(countedWords)
+leastWords= leastWords(countedWords)
+alphabeticOrder= alphabeticOrder(countedWords)
+
+
