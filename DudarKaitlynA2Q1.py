@@ -38,6 +38,6 @@ def commonWords():
     mostCommon= max(counts)
 
 def leastWords()
-    LeastWords= min(counts)
+    leastWords= min(counts)
 
 def
