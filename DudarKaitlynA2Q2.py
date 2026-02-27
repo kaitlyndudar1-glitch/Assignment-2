@@ -21,17 +21,17 @@ def rate(occupancy):
 userfile= input("Please enter the .csv file for the parkade: ")
 file= open(userfile)
 
-floorData= []
+floorData= [] #This is the list that will store the dictionary for each floor.
 
 for line in file:
-    items = line.strip().split(",")
+    items = line.strip().split(",") #Splits the line into 3 values
 
-    floorNum= int(items[0])
-    totSpace= int(items[1])
-    vehicles= int(items[2])
+    floorNum= int(items[0]) #Converts the floor number into a int the following do the same but for there given
+    totSpace= int(items[1]) #Total Spaces
+    vehicles= int(items[2]) #Total Vecicles
 
-    data= {'Floor':floorNum, 'Spaces':totSpace, 'Vehicles':vehicles}
-    floorData.append(data)
+    data= {'Floor':floorNum, 'Spaces':totSpace, 'Vehicles':vehicles} #Stores the floor info in a dict
+    floorData.append(data) #Adding the dict to the list
 
 file.close()
 
@@ -42,9 +42,9 @@ for item in floorData:
     space= space + item['Spaces']
     totVehicles= totVehicles + item['Vehicles']
 
-openSpace= space - totVehicles
-occupancy= int((openSpace / space) * 100)
+openSpace= space - totVehicles #Total open Spaces
+occupancy= int((openSpace / space) * 100) #The occupancy
 
-if openSpace == 0:
+if openSpace == 0: #Runs if the parkade it completely full
     print("PARKADE FULL\n----------\nTotal spaces in parkade: {}\nTotal available spaces: 0\nTotal parkade occupancy: 100%".format(space))
 
