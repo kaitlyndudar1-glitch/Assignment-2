@@ -21,4 +21,12 @@ def rate(occupancy):
         rate= 1
         return rate
 
+userfile= input("Please enter the .csv file for the parkade: ")
+file= open(userfile)
 
+for line in file:
+    items = line.strip().split(",")
+
+    floorNum= int(items[0])
+    totSpace= int(items[1])
+    vehicles= int(items[2])
