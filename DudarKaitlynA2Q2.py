@@ -58,7 +58,7 @@ else
         vehicles= item['Vehicles']
 
         floorSpace= spaces - vehicles
-        floorOccupancy= (vehicles/spaces)*10
+        floorOccupancy= int((vehicles/spaces)*100)
 
         if vehicles == spaces
             print("Floor {}: FLOOR FULL".format(floor))
