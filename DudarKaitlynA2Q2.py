@@ -24,9 +24,16 @@ def rate(occupancy):
 userfile= input("Please enter the .csv file for the parkade: ")
 file= open(userfile)
 
+floorData= []
+
 for line in file:
     items = line.strip().split(",")
 
     floorNum= int(items[0])
     totSpace= int(items[1])
     vehicles= int(items[2])
+
+    data= {'Floor':floorNum, 'Spaces':totSpace, 'Vehicles':vehicles}
+    floorData.append(data)
+
+file.close()
