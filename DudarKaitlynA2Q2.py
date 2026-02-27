@@ -66,3 +66,4 @@ else:
             parkingRate= rate(occupancy)
             print("Floor {}: {} spaces open, {}% occupancy, parking rate is ${:.2f}".format(floor, floorSpace, floorOccup, parkingRate))
 
+print("----------\nTotal spaces in parkade: {}\nTotal available spaces: {}\nTotal parkade occupancy: {}%".format(space, floorSpace, occupancy))
