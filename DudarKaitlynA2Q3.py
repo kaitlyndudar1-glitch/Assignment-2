@@ -16,8 +16,8 @@ def readFile(userInput):
         line= line.split()
 
         if line != firstLine:
-        date, price= line.split(",")
-        data.append(date, float(price))
+            date, price= line.split(",")
+            data.append(date, float(price))
 
     file.close()
     return data
@@ -32,7 +32,8 @@ def averagePrice(data):
     return average, count
 
 def minPrice(data):
-    mindate, minprice= min(data)
+    for item in data:
+    minprice= min(data[item][1])
     return mindate, minprice
 
 def maxPrice(data):
@@ -46,6 +47,11 @@ def deviation(data):
     for date, price in data:
         total+= (price - average)**2
 
-    return total/count
+    return math.sqrt(total/count)
+
+def priceIncrease(data):
+    countInc= 0
+
+
 
 
