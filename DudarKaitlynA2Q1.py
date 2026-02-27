@@ -25,8 +25,8 @@ def countWords(wordCount, Story):
     counts[word]= 0
     for item in Story:
         if item == word:
-            count+= 1
-    return count
+            counts[word]+= 1
+    return counts
 
 def uniqueWords()
     wordDict= {}
