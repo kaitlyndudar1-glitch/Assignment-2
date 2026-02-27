@@ -12,4 +12,19 @@ def readFile(userInput):
     file= open(userInput)
     data= []
     for line in file:
-        line= line.split()
+        line= line.split() #have to come back to make it skip the header
+        date, price= line.split(",")
+        data.append(date, price)
+
+    file.close()
+    return data
+
+def averagePrice(data):
+    total= 0
+    count= 0
+    for date, price in data:
+        total+= int(price)
+        count+=1
+    average= total/count
+    return average, count
+
