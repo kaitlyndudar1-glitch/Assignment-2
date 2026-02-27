@@ -60,7 +60,7 @@ else
         floorSpace= spaces - vehicles
         floorOccupancy= int((vehicles/spaces)*100)
 
-        if vehicles == spaces
+        if vehicles == spaces:
             print("Floor {}: FLOOR FULL".format(floor))
         else:
             parkingRate= rate(occupancy)
