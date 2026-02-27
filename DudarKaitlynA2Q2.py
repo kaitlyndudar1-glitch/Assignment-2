@@ -10,13 +10,10 @@ PURPOSE: calculates floor occupancy for flexible parking pricing
 def rate(occupancy):
     if occupancy >= 75:
         RATE= 3
-        return RATE
     elif occupancy >= 60 and occupancy < 75:
         RATE= 2
-        return RATE
     elif occupancy >= 50 and occupancy < 60:
         RATE= 1.50
-        return RATE
     else:
         RATE= 1
         return RATE
