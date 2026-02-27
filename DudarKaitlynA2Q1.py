@@ -6,6 +6,8 @@ AUTHOR Kaitlyn Dudar
 VERSION [Date of last change; e.g., 2026-Feb-26]
 PURPOSE: use of dictionaries to store and analyze word frequencies of two files
 """
+from distributed.diagnostics.progress_stream import counts
+
 
 def readWords(userWords):
     fileWords= open(userWords)
@@ -28,6 +30,14 @@ def countWords(wordCount, Story):
             counts[word]+= 1
     return counts
 
-def uniqueWords()
-    wordDict= {}
-    for
+def uniqueWords(wordCount)
+    numUniqueWords= len(wordCount)
+    return numUniqueWords
+
+def commonWords():
+    mostCommon= max(counts)
+
+def leastWords()
+    LeastWords= min(counts)
+
+def
