@@ -55,4 +55,12 @@ commonWords= commonWords(countedWords)
 leastWords= leastWords(countedWords)
 alphabeticOrder= alphabeticOrder(countedWords)
 
-
+print("Words Counts: ")
+print("The Word {} occurs {} times".format())
+print("Most common word: '{}' with {} occurrences".format())
+print("Summary:")
+print("Total unique words searched: {}".format(len(wordCount)))
+print("Most common word: '{}' with {} occurrences".format())
+print("Least common word: '{}' with {} occurrences".format())
+print("All words sorted alphabetically:")
+print("'{}' occurs {} times.".format())
