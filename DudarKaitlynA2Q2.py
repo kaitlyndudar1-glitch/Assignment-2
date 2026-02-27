@@ -7,11 +7,16 @@ VERSION [Date of last change; e.g., 2026-Feb-26]
 PURPOSE: calculates floor occupancy for flexible parking pricing
 """
 '''
-I choose to use a list with dictionaries this keeps the three values together and
-is a lot easier then using a lot of index positions. By using it in a dictionary
+I choose to use a list with dictionaries, this keeps the three values together and
+is a lot easier to use then index positions. By using it in a dictionary
 I can just call the key.
 '''
 def rate(occupancy):
+    """
+    purpose: determine the correct parking rate for a given occupancy level
+    return: parking rate based on occupancy percentage
+    parameter: occupancy is the percent of spaces filled on a floor
+    """
     if occupancy >= 75:
         RATE= 3
         return RATE
@@ -25,6 +30,7 @@ def rate(occupancy):
         RATE= 1
         return RATE
 
+#main
 userfile= input("Please enter the .csv file for the parkade: ")
 file= open(userfile)
 
@@ -42,6 +48,7 @@ for line in file:
 
 file.close()
 
+#finds the spaces and all the vehicles across floors
 space= 0
 totVehicles= 0
 
@@ -50,25 +57,27 @@ for item in floorData:
     totVehicles= totVehicles + item['Vehicles']
 
 openSpace= space - totVehicles #Total open Spaces
-occupancy= int((totVehicles / space) * 100) #The occupancy
+occupancy= int((totVehicles / space) * 100) #total parkade occupancy
 
+#outputs
 if openSpace == 0: #Runs if the parkade it completely full
     print("PARKADE FULL")
-else:
+else: #we look at each floor
     for item in floorData:
-        floor= item['Floor']
-        spaces= item['Spaces']
-        vehicles= item['Vehicles']
+        floor= item['Floor'] #floor number
+        spaces= item['Spaces'] #Total spaces on floor
+        vehicles= item['Vehicles'] #Vechiles in parkade
 
-        floorSpace= spaces - vehicles
-        floorOccupancy= int((vehicles/spaces)*100)
+        floorSpace= spaces - vehicles #open spaces on the floor
+        floorOccupancy= int((vehicles/spaces)*100) #floor occupancy percentage
 
-        if vehicles == spaces:
+        if vehicles == spaces: #only runs if the floor is full
             print("Floor {}: FLOOR FULL".format(floor))
-        else:
+        else: #Calculates the rate based on the floors occupancy
             parkingRate= rate(floorOccupancy)
             print("Floor {}: {} spaces open, {}% occupancy, parking rate is ${:.2f}".format(floor, floorSpace, floorOccupancy, parkingRate))
 
+#summary prints for both full and not full
 print("----------\nTotal spaces in parkade: {}\nTotal available spaces: {}\nTotal parkade occupancy: {}%".format(space, openSpace, occupancy))
 
 print("\nProgram terminated normally.")
