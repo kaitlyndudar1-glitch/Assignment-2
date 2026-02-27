@@ -33,8 +33,15 @@ def uniqueWords(wordCount):
     return numUniqueWords
 
 def commonWords(counts):
-    mostCommon= max(counts)
-    return mostCommon
+    words= list(counts.keys())
+    mostword= words[0]
+    mostCount= counts[mostword]
+
+    for word in words:
+        if counts[word] > mostCount:
+            mostword= word
+            mostCount= counts[word]
+    return mostword
 
 def leastWords(counts):
     words= list(counts.keys())
