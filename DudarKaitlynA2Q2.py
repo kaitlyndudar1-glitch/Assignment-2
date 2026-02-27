@@ -9,17 +9,17 @@ PURPOSE: calculates floor occupancy for flexible parking pricing
 
 def rate(occupancy):
     if occupancy >= 75:
-        rate= 3
-        return rate
+        RATE= 3
+        return RATE
     elif occupancy >= 60 and occupancy < 75:
-        rate= 2
-        return rate
+        RATE= 2
+        return RATE
     elif occupancy >= 50 and occupancy < 60:
-        rate= 1.50
-        return rate
+        RATE= 1.50
+        return RATE
     else:
-        rate= 1
-        return rate
+        RATE= 1
+        return RATE
 
 userfile= input("Please enter the .csv file for the parkade: ")
 file= open(userfile)
