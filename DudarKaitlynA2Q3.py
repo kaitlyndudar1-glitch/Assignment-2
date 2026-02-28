@@ -177,7 +177,7 @@ incAmount, incDate = dayIncrease(file)
 decAmount, decDate = dayDecrease(file)
 
 #output
-print("Bitcoin Price Statistics\n========================\n")
+print("\nBitcoin Price Statistics\n========================\n")
 print("Price Statistics:")
 print("Average Price: ${:,.2f}".format(avg))
 print("Minimum Price: ${:,.2f} on {}".format(minPrice, minDate))
