@@ -78,10 +78,42 @@ def priceDecrease(data):
     return countDec
 
 def dayIncrease(data):
+    date, price= data[0]
+    currentDate, currentPrice= data[1]
+
+    difference= currentPrice - price
+    maxInc= difference
+    maxIncDate= currentDate
+
     for item in range(1 , len(data)):
         date, price= data[item-1]
         currentDate, currentPrice= data[item]
+
         difference= currentPrice - price
 
-        if difference >
+        if difference > maxInc:
+            maxInc= difference
+            maxIncDate= currentDate
+
+    return maxIncDate, maxInc
+
+def dayDecrease(data):
+    date, price= data[0]
+    currentDate, currentPrice= data[1]
+
+    difference= currentPrice - price
+    maxDec= difference
+    maxDecDate= currentDate
+
+    for item in range(1 , len(data)):
+        date, price= data[item-1]
+        currentDate, currentPrice= data[item]
+
+        difference= currentPrice - price
+
+        if difference < maxDec:
+            maxDec= difference
+            maxDecDate= currentDate
+
+    return maxDecDate, maxDec
 
