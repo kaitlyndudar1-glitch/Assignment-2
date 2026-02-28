@@ -69,7 +69,7 @@ def priceIncrease(data):
 def priceDecrease(data):
     countDec= 0
 
-    for item in data:
+    for item in range(1 , len(data)):
         date, price= data[item-1]
         currentDate, currentPrice= data[item]
         difference= currentPrice - price
@@ -77,5 +77,11 @@ def priceDecrease(data):
             countDec+= 1
     return countDec
 
+def dayIncrease(data):
+    for item in range(1 , len(data)):
+        date, price= data[item-1]
+        currentDate, currentPrice= data[item]
+        difference= currentPrice - price
 
+        if difference >
 
