@@ -52,13 +52,13 @@ def deviation(data):
 
     for date, price in data:
         total+= (price - average)**2
-
-    return math.sqrt(total/count)
+    devi= math.sqrt(total/count)
+    return devi
 
 def priceIncrease(data):
     countInc= 0
 
-    for item in data:
+    for item in range(1 , len(data)):
         date, price= data[item-1]
         currentDate, currentPrice= data[item]
         difference= currentPrice - price
@@ -116,4 +116,17 @@ def dayDecrease(data):
             maxDecDate= currentDate
 
     return maxDecDate, maxDec
+
+userInput= input("Enter the name of the bitcoin price file (.csv): ")
+
+file = readFile(userInput)
+avg, count = averagePrice(file)
+minDate, minPrice = minPrice(file)
+maxDate, maxPrice = maxPrice(file)
+dev = deviation(file)
+incCount = priceIncrease(file)
+decCount = priceDecrease(file)
+incDate, incAmount = dayIncrease(file)
+decDate, decAmount = dayDecrease(file)
+
 
