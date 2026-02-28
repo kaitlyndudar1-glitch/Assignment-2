@@ -14,7 +14,7 @@ def readFile(userInput):
     firstLine= "Date,Price"
 
     for line in file:
-        line= line.split()
+        line= line.strip()
 
         if line != firstLine:
             date, price= line.split(",")
@@ -95,7 +95,7 @@ def dayIncrease(data):
             maxInc= difference
             maxIncDate= currentDate
 
-    return maxIncDate, maxInc
+    return maxInc, maxIncDate
 
 def dayDecrease(data):
     date, price= data[0]
@@ -115,7 +115,7 @@ def dayDecrease(data):
             maxDec= difference
             maxDecDate= currentDate
 
-    return maxDecDate, maxDec
+    return maxDec, maxDecDate
 
 userInput= input("Enter the name of the bitcoin price file (.csv): ")
 
@@ -126,7 +126,20 @@ maxDate, maxPrice = maxPrice(file)
 dev = deviation(file)
 incCount = priceIncrease(file)
 decCount = priceDecrease(file)
-incDate, incAmount = dayIncrease(file)
-decDate, decAmount = dayDecrease(file)
+incAmount, incDate = dayIncrease(file)
+decAmount, decDate = dayDecrease(file)
 
+print("Bitcoin Price Statistics\n========================\n")
+print("Price Statistics:")
+print("Average Price: ${:,.2f}".format(avg))
+print("Minimum Price: ${:,.2f} on {}".format(minPrice, minDate))
+print("Maximum Price: ${:,.2f} on {}".format(maxPrice, maxDate))
+print("Standard Deviation: ${:,.2f}".format(dev))
 
+print("\nPrice Movement Analysis:")
+print("Days with price increase: {}".format(incCount))
+print("Days with price decrease: {}".format(decCount))
+print("Largest single-day increase: ${:,.2f} on {}".format(float(incAmount), incDate))
+print("Largest single-day decrease: ${:,.2f} on {}".format(float(decAmount), decDate))
+
+print("Program terminated normally.")
